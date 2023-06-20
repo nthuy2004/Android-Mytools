@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CustomCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="?dialogPreferredPadding">
+                    <ImageView
+                        android:id="@+id/status_icon"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_centerVertical="true"
+                        app:tint="?colorOnPrimary"
+                        app:srcCompat="@drawable/icon_android"
+                        tools:ignore="ContentDescription" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/status_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="24dp"
+                        android:layout_toEndOf="@id/status_icon"
+                        android:textAppearance="?textAppearanceTitleMedium"
+                        android:textColor="?colorOnPrimary"
+                        android:text="Control panel"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/status_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/status_title"
+                        android:layout_alignStart="@id/status_title"
+                        android:textAppearance="?textAppearanceBodyMedium"
+                        android:text="Version 1.0"
+                        android:textColor="?colorOnPrimary" />
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <GridLayout
+                android:columnCount="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                    android:id="@+id/btn_programs"
+                    app:text="@string/programs"
+                    app:drawable="@drawable/icon_app"
+                    style="@style/GridDrawableButtonItem" />
+                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                    android:id="@+id/btn_processes"
+                    app:text="@string/processes"
+                    app:drawable="@drawable/icon_window"
+                    style="@style/GridDrawableButtonItemRight" />
+                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                    android:id="@+id/btn_network"
+                    app:text="@string/network"
+                    app:drawable="@drawable/icon_network"
+                    style="@style/GridDrawableButtonItem" />
+            </GridLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tools"
+                style="@style/HeaderText"
+                />
+            <GridLayout
+                android:columnCount="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                    android:id="@+id/btn_terminal"
+                    app:text="@string/terminal"
+                    app:drawable="@drawable/icon_window"
+                    style="@style/GridDrawableButtonItem" />
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

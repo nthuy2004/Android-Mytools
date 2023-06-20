@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HeaderText">
+        <item name="android:textColor">?colorOnPrimary</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+    </style>
+    <style name="CustomCardView" parent="@style/Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">?colorPrimary</item>
+        <item name="cardElevation">12dp</item>
+    </style>
+    <style name="BaseDrawableButton">
+        <item name="android:background">@drawable/drawable_btn</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:paddingStart">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingEnd">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_column">0</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="GridDrawableButtonItem" parent="BaseDrawableButton">
+    </style>
+    <style name="GridDrawableButtonItemRight" parent="BaseDrawableButton">
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_column">1</item>
+    </style>
+</resources>

@@ -3,4 +3,8 @@
     <string name="home">Home</string>
     <string name="monitor">Monitor</string>
     <string name="about">About</string>
+    <string name="programs">Programs</string>
+    <string name="processes">Processes</string>
+    <string name="network">Network</string>
+    <string name="terminal">Terminal</string>
 </resources>
