@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">?colorSurface</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="colorPrimary">#4EAFF5</item>
+        <item name="colorPrimaryVariant">#804EAFF5</item>
+        <item name="colorSecondary">#3E78AF</item>
+        <item name="colorSecondaryVariant">#803E78AF</item>
+        <item name="colorSurface">#0D0D0D</item>
+        <item name="colorSurfaceVariant">#171717</item>
+        <item name="colorOnPrimary">#F9F9F9</item>
+        <item name="colorSecondaryContainer">?colorSecondaryVariant</item>
+        <item name="colorOnSecondaryContainer">@color/white</item>
+        <item name="colorOnSecondary">#F9F9F9</item>
+        <item name="colorOnBackground">?colorOnSurface</item>
+        <item name="colorError">#EF8282</item>
+        <item name="colorOnError">#0D0D0D</item>
+        <item name="colorOnSurface">#D8D8D8</item>
+        <item name="colorOnSurfaceVariant">#CCBABABA</item>
+        <item name="android:textColorPrimary">?colorOnPrimary</item>
+    </style>
+</resources>

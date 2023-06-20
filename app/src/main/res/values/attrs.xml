@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="DrawableButton">
+        <attr name="text" format="string" />
+        <attr name="drawable" format="reference|integer" />
+    </declare-styleable>
+</resources>
