@@ -1,11 +1,14 @@
 package vn.nth.mytools.UI.Fragments
 
+import android.content.res.ColorStateList
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import vn.nth.mytools.App
+import vn.nth.mytools.R
 import vn.nth.mytools.databinding.FragmentHomeBinding
 
 class Home : Fragment(){
@@ -16,6 +19,7 @@ class Home : Fragment(){
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(layoutInflater)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -24,6 +28,11 @@ class Home : Fragment(){
         initEvent()
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.fragment_home_opt_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
     private fun initEvent() {
 
     }

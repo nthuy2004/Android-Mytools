@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/app_bar_switch"
+        android:title="Switch"
+        app:actionLayout="@layout/switch_item"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/restart_menu"
+        android:title="Power"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_power"
+        android:iconTint="?colorOnPrimary"/>
+    <item
+        android:id="@+id/setting_menu"
+        android:title="Setting"
+        app:showAsAction="always"
+        android:icon="@drawable/icon_setting"
+        android:iconTint="?colorOnPrimary"/>
+</menu>
