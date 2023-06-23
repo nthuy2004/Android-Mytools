@@ -22,4 +22,7 @@
         <item name="colorOnSurfaceVariant">#CCBABABA</item>
         <item name="android:textColorPrimary">?colorOnPrimary</item>
     </style>
+    <style name="SplashTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg</item>
+    </style>
 </resources>

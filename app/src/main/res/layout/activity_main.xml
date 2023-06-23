@@ -7,16 +7,13 @@
     android:id="@+id/constraintLayout"
     tools:context=".UI.Activities.MainActivity"
     >
-    <com.google.android.material.appbar.AppBarLayout
+    <include
         android:id="@+id/appbarLayout"
+        layout="@layout/layout_appbar"
         android:layout_width="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
-    </com.google.android.material.appbar.AppBarLayout>
+    </include>
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_container"
         android:name="androidx.navigation.fragment.NavHostFragment"

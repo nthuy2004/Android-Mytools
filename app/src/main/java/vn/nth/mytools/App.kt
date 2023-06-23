@@ -5,6 +5,8 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
+import vn.nth.mytools.Data.Models.AppModel
+import vn.nth.mytools.Utils.Helper.ApplicationHelper
 
 class App : Application() {
     companion object {
@@ -14,6 +16,9 @@ class App : Application() {
             handler.post {
                 Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
             }
+        }
+        public fun getInstalledApps(): ArrayList<AppModel> {
+            return ApplicationHelper(context).getApps(true)
         }
         public fun post(runnable: Runnable) {
             handler.post(runnable)
