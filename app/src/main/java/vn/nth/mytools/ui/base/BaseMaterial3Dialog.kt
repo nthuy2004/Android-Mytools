@@ -5,7 +5,7 @@ import android.content.Context
 import android.view.View
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
-open class BaseMaterial3DIalog(private val context : Context) {
+open class BaseMaterial3Dialog(private val context : Context) {
     public var layout : Int = 0
         set(value) {
             if(value != 0) {

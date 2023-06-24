@@ -10,7 +10,7 @@ import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.R
 import vn.nth.mytools.ui.adapter.ApplicationsAdapter
 import vn.nth.mytools.ui.base.BaseActivity
-import vn.nth.mytools.ui.base.BaseMaterial3DIalog
+import vn.nth.mytools.ui.base.BaseMaterial3Dialog
 import vn.nth.mytools.ui.dialogs.AppDetailDialog
 import vn.nth.mytools.databinding.ActivityProgramsBinding
 
@@ -18,7 +18,7 @@ class ProgramsActivity : BaseActivity() {
     private lateinit var binding : ActivityProgramsBinding
     private val handler : Handler = Handler(Looper.getMainLooper())
     private var appData : ArrayList<AppModel> = ArrayList<AppModel>()
-    private lateinit var baseDialog: BaseMaterial3DIalog
+    private lateinit var baseDialog: BaseMaterial3Dialog
     private lateinit var appDetailDialog: AppDetailDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +28,7 @@ class ProgramsActivity : BaseActivity() {
             title = "Applications list"
             enableBack = true
         }
-        baseDialog = BaseMaterial3DIalog(this).apply {
+        baseDialog = BaseMaterial3Dialog(this).apply {
             layout = R.layout.layout_loading
             cancelable = false
         }
