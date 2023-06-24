@@ -6,7 +6,7 @@ import java.lang.StringBuilder
 public class AppModel : BaseModel() {
     public var appname : String = ""
     public var packageName : String = ""
-    public var className : String = ""
+    public var className : String? = null
     public var dir : String = ""
     public var path : String = ""
     public var version : String = ""
