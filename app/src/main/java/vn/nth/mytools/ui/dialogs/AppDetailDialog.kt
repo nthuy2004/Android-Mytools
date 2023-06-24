@@ -1,6 +1,7 @@
 package vn.nth.mytools.ui.dialogs
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.view.LayoutInflater
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.ui.base.BaseMaterial3Dialog
@@ -13,6 +14,14 @@ class AppDetailDialog(private var context : Context, private var appData : AppMo
         dialogBuilderWrapper.setView(binding.root)
         if(appData != null) {
             binding.setData(appData)
+        }
+        initEvent()
+
+    }
+
+    private fun initEvent() {
+        binding.btnRunApp.setOnClickListener {
+
         }
     }
 }

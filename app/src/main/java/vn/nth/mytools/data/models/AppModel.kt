@@ -6,6 +6,7 @@ import java.lang.StringBuilder
 public class AppModel : BaseModel() {
     public var appname : String = ""
     public var packageName : String = ""
+    public var className : String = ""
     public var dir : String = ""
     public var path : String = ""
     public var version : String = ""
@@ -39,6 +40,7 @@ public class AppModel : BaseModel() {
         a.run {
             append("App name: $appname\n")
             append("Package name: $packageName\n")
+            append("Class name: $className\n")
             append("Dir: $dir\n")
             append("Path: $path\n")
             append("Version: $version\n")

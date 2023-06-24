@@ -1,7 +1,9 @@
 package vn.nth.mytools.Utils
 
 import android.content.Context
+import android.content.pm.ActivityInfo
 import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import kotlinx.coroutines.Deferred
@@ -27,7 +29,11 @@ fun Context.getAppIcon(app : ApplicationInfo) : Drawable? {
     return icon
 }
 fun Context.getAppIcon(packageName: String): Drawable? {
-    packageManager
     val installInfo = packageManager.getPackageInfo(packageName, 0)
     return installInfo.applicationInfo.loadIcon(packageManager)
+}
+fun Context.getListActivities(packageName: String) : ArrayList<ActivityInfo> {
+    val pInfo : PackageInfo = packageManager.getPackageInfo(packageName, 0)
+    val a : ArrayList<ActivityInfo> = pInfo.activities as ArrayList<ActivityInfo>
+    return a
 }

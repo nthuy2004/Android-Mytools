@@ -45,6 +45,7 @@ class ApplicationHelper(ctx : Context) {
         item.packageName = applicationInfo.packageName
         item.dir = file.parent
         item.path = appPath
+        item.className = applicationInfo.className
         try {
             val packageInfo = packageManager.getPackageInfo(applicationInfo.packageName, 0)
             item.version = packageInfo.versionName
