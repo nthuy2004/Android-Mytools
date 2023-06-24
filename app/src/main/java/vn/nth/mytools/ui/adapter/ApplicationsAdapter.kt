@@ -1,18 +1,14 @@
-package vn.nth.mytools.UI.Adapters
+package vn.nth.mytools.ui.adapter
 
 import android.content.Context
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import vn.nth.mytools.Data.Models.AppModel
-import vn.nth.mytools.R
+import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.databinding.LayoutAppItemBinding
 
 class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppModel>, keyword : String) : BaseAdapter() {

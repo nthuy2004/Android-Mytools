@@ -1,4 +1,4 @@
-package vn.nth.mytools.UI.CustomViews;
+package vn.nth.mytools.ui.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;

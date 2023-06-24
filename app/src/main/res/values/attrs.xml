@@ -4,4 +4,9 @@
         <attr name="text" format="string" />
         <attr name="drawable" format="reference|integer" />
     </declare-styleable>
+    <declare-styleable name="PrefItem">
+        <attr name="title" format="string" />
+        <attr name="desc" format="string" />
+        <attr name="headicon" format="reference|integer" />
+    </declare-styleable>
 </resources>

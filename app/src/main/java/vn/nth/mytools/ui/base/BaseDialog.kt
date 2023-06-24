@@ -1,4 +1,4 @@
-package vn.nth.mytools.UI.Base
+package vn.nth.mytools.ui.base
 
 import android.app.AlertDialog
 import android.content.Context

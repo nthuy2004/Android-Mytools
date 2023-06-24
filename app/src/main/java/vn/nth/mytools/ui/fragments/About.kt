@@ -1,4 +1,4 @@
-package vn.nth.mytools.UI.Fragments
+package vn.nth.mytools.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

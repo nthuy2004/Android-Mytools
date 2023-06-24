@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
-import vn.nth.mytools.Data.Models.AppModel
+import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.Utils.Helper.ApplicationHelper
 
 class App : Application() {

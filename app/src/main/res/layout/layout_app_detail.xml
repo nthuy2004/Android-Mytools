@@ -1,39 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp"
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     >
+    <data>
+        <variable
+            name="data"
+            type="vn.nth.mytools.data.models.AppModel" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="8dp"
         >
-        <ImageView
-            android:id="@+id/appIcon"
-            style="@style/AppIcon" />
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="7dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/item_title"
-                style="@style/textTitle"
-                android:layout_width="match_parent"
+            android:padding="8dp"
+            >
+            <ImageView
+                android:id="@+id/appIcon"
+                style="@style/AppIcon"
+                android:src="@{data.icon}" />
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:lines="1" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/item_title"
+                    style="@style/textTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.appname}"
+                    android:lines="1" />
 
-            <TextView
-                android:id="@+id/item_pkgname"
-                style="@style/textSmall"
+                <TextView
+                    android:id="@+id/item_pkgname"
+                    style="@style/textSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{data.packageName}"
+                    android:lines="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.button.MaterialButton
+                android:text="Open"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btnRunApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:text="Info"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btnAppInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:text="Google play"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btnUninstall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:orientation="vertical"
+            >
+            <vn.nth.mytools.ui.customviews.PerfItem
+                android:id="@+id/btnUninstallMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lines="1" />
+                app:desc="@string/uninstall_desc"
+                app:headicon="@drawable/icon_trash"
+                app:title="@string/uninstall" />
+            <vn.nth.mytools.ui.customviews.PerfItem
+                android:id="@+id/btnClearDataMenu"
+                app:headicon="@drawable/icon_broom"
+                app:title="@string/cleardata"
+                app:desc="@string/cleardata_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <vn.nth.mytools.ui.customviews.PerfItem
+                android:id="@+id/btnFreezeMenu"
+                app:headicon="@drawable/icon_trash"
+                app:title="@string/freeze"
+                app:desc="@string/freeze_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+</layout>

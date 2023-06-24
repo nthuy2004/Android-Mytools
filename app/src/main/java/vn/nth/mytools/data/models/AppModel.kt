@@ -1,9 +1,9 @@
-package vn.nth.mytools.Data.Models
+package vn.nth.mytools.data.models
 
 import android.graphics.drawable.Drawable
 import java.lang.StringBuilder
 
-class AppModel : BaseModel() {
+public class AppModel : BaseModel() {
     public var appname : String = ""
     public var packageName : String = ""
     public var dir : String = ""
@@ -18,7 +18,7 @@ class AppModel : BaseModel() {
     public var isSystem : Boolean = false
     public var appType : AppType = AppType.UNKNOWN
     public var icon : Drawable? = null
-    public enum class AppType {
+    public enum class AppType : java.io.Serializable {
         UNKNOWN, USER, SYSTEM
     }
     public fun isNormal() : Boolean{
@@ -27,9 +27,9 @@ class AppModel : BaseModel() {
     public fun getStatus() : String {
         val a : java.lang.StringBuilder = StringBuilder()
         if(suspended || updated || isSystem) {
-            if(suspended) a.append( "❄ Suspended" )
-            if(updated) a.append(" \uD83D\uDC4C Updated ")
-            if(isSystem) a.append(" \uD83D\uDCF1 System ")
+            if(suspended) a.append( "❄ Suspended " )
+            if(updated) a.append("\uD83D\uDC4C Updated ")
+            if(isSystem) a.append("\uD83D\uDCF1 System ")
             return a.toString()
         }
         else return "Normal"

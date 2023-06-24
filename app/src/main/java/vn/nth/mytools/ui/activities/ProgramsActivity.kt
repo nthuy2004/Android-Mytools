@@ -1,23 +1,17 @@
-package vn.nth.mytools.UI.Activities
+package vn.nth.mytools.ui.activities
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.SystemClock
 import android.view.Menu
-import android.view.View
 import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 import vn.nth.mytools.App
-import vn.nth.mytools.Data.Models.AppModel
+import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.R
-import vn.nth.mytools.UI.Adapters.ApplicationsAdapter
-import vn.nth.mytools.UI.Base.BaseActivity
-import vn.nth.mytools.UI.Base.BaseDialog
-import vn.nth.mytools.UI.Base.BaseMaterial3DIalog
-import vn.nth.mytools.UI.Dialogs.AppDetailDialog
+import vn.nth.mytools.ui.adapter.ApplicationsAdapter
+import vn.nth.mytools.ui.base.BaseActivity
+import vn.nth.mytools.ui.base.BaseMaterial3DIalog
+import vn.nth.mytools.ui.dialogs.AppDetailDialog
 import vn.nth.mytools.databinding.ActivityProgramsBinding
 
 class ProgramsActivity : BaseActivity() {

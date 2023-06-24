@@ -43,6 +43,7 @@
                 style="@style/textTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:lines="1" />
 
             <TextView
@@ -50,12 +51,14 @@
                 style="@style/textSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:lines="1" />
             <TextView
                 android:id="@+id/item_status"
                 style="@style/textSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:maxWidth="100dp"
                 android:textColor="?android:colorAccent" />
 

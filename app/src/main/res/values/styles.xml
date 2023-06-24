@@ -52,4 +52,20 @@
         <item name="android:minWidth">45dp</item>
         <item name="android:minHeight">45dp</item>
     </style>
+
+    <style name="AppDetailList_TextDesc">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+    <style name="AppDetailList_TextValue" parent="AppDetailList_TextDesc">
+        <item name="android:textColor">#888</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">8dp</item>
+    </style>
 </resources>

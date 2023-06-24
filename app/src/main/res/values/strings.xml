@@ -7,4 +7,10 @@
     <string name="processes">Processes</string>
     <string name="network">Network</string>
     <string name="terminal">Terminal</string>
+    <string name="uninstall">Uninstall</string>
+    <string name="uninstall_desc">Uninstall application to free-up storage</string>
+    <string name="cleardata">Clear data</string>
+    <string name="cleardata_desc">Clear data  to free-up storage</string>
+    <string name="freeze">Freeze</string>
+    <string name="freeze_desc">It\'s like uninstall, but all data will be kept</string>
 </resources>

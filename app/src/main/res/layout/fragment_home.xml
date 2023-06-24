@@ -56,17 +56,17 @@
                 android:columnCount="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                <vn.nth.mytools.ui.customviews.DrawableButton
                     android:id="@+id/btn_programs"
                     app:text="@string/programs"
                     app:drawable="@drawable/icon_app"
                     style="@style/GridDrawableButtonItem" />
-                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                <vn.nth.mytools.ui.customviews.DrawableButton
                     android:id="@+id/btn_processes"
                     app:text="@string/processes"
                     app:drawable="@drawable/icon_window"
                     style="@style/GridDrawableButtonItemRight" />
-                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                <vn.nth.mytools.ui.customviews.DrawableButton
                     android:id="@+id/btn_network"
                     app:text="@string/network"
                     app:drawable="@drawable/icon_network"
@@ -82,7 +82,7 @@
                 android:columnCount="2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <vn.nth.mytools.UI.CustomViews.DrawableButton
+                <vn.nth.mytools.ui.customviews.DrawableButton
                     android:id="@+id/btn_terminal"
                     app:text="@string/terminal"
                     app:drawable="@drawable/icon_window"

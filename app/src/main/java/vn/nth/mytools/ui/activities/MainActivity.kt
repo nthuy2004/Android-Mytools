@@ -1,17 +1,13 @@
-package vn.nth.mytools.UI.Activities
+package vn.nth.mytools.ui.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import vn.nth.mytools.App
 import vn.nth.mytools.R
-import vn.nth.mytools.UI.Base.BaseActivity
+import vn.nth.mytools.ui.base.BaseActivity
 import vn.nth.mytools.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {

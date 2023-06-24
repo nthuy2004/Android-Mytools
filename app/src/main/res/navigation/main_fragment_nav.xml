@@ -7,19 +7,19 @@
     <fragment
         android:id="@+id/nav_home"
         android:label="@string/home"
-        android:name="vn.nth.mytools.UI.Fragments.Home"
+        android:name="vn.nth.mytools.ui.fragments.Home"
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/nav_monitor"
         android:label="@string/monitor"
-        android:name="vn.nth.mytools.UI.Fragments.Monitor"
+        android:name="vn.nth.mytools.ui.fragments.Monitor"
         tools:layout="@layout/fragment_home" >
     </fragment>
     <fragment
         android:id="@+id/nav_about"
         android:label="@string/about"
-        android:name="vn.nth.mytools.UI.Fragments.About"
+        android:name="vn.nth.mytools.ui.fragments.About"
         tools:layout="@layout/fragment_home" >
     </fragment>
 

@@ -6,7 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import vn.nth.mytools.App
-import vn.nth.mytools.Data.Models.AppModel
+import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.Utils.charSequenceToString
 import vn.nth.mytools.Utils.getAppIcon
 import java.io.File

@@ -1,6 +1,5 @@
-package vn.nth.mytools.UI.Base
+package vn.nth.mytools.ui.base
 
-import android.content.Intent
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 
@@ -35,4 +34,5 @@ open class BaseActivity : AppCompatActivity() {
                 }
             }
     }
+
 }

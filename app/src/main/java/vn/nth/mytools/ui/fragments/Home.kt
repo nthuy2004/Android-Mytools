@@ -1,17 +1,14 @@
-package vn.nth.mytools.UI.Fragments
+package vn.nth.mytools.ui.fragments
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import vn.nth.mytools.App
 import vn.nth.mytools.R
-import vn.nth.mytools.UI.Activities.ProgramsActivity
+import vn.nth.mytools.ui.activities.ProgramsActivity
 import vn.nth.mytools.databinding.FragmentHomeBinding
 
 class Home : Fragment(){

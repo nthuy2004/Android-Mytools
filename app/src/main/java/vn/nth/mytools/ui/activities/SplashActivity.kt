@@ -1,7 +1,6 @@
-package vn.nth.mytools.UI.Activities
+package vn.nth.mytools.ui.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import vn.nth.mytools.databinding.ActivitySplashBinding
 
