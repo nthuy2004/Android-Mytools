@@ -13,7 +13,7 @@ class PerfItem(context : Context, attrs : AttributeSet) : LinearLayout(context, 
     private var binding : LayoutPrefItemBinding
     init {
         binding = LayoutPrefItemBinding.inflate(LayoutInflater.from(context))
-        val l : LayoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
+        val l = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         addView(binding.root, l)
         val attr = context.obtainStyledAttributes(attrs, R.styleable.PrefItem)
         if(attrs != null) {

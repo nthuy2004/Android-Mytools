@@ -13,6 +13,7 @@ public class AppModel : BaseModel() {
     public var versionCode : Int = 0
     public var targetSdkVersion = 0
     public var minSdkVersion = 0
+    public var canRun : Boolean = true
     public var enabled : Boolean = false
     public var suspended : Boolean = false
     public var updated : Boolean = false

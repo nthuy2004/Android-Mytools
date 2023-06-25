@@ -2,6 +2,7 @@ package vn.nth.mytools.ui.base
 
 import androidx.appcompat.app.AlertDialog
 import android.content.Context
+import android.text.Spannable
 import android.view.View
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -20,9 +21,12 @@ open class BaseMaterial3Dialog(private val context : Context) {
         set(value) {
             dialogBuilderWrapper.setTitle(value)
         }
-    public var message : String = ""
+    public var message : Any = ""
         set(value) {
-            dialogBuilderWrapper.setMessage(value)
+            when(value) {
+                is String -> dialogBuilderWrapper.setMessage(value)
+                is Spannable -> dialogBuilderWrapper.setMessage(value)
+            }
         }
     public var cancelable : Boolean = false
         set(value) {

@@ -46,6 +46,7 @@ class ApplicationHelper(ctx : Context) {
         item.dir = file.parent
         item.path = appPath
         item.className = applicationInfo.className
+        item.canRun = packageManager.getLaunchIntentForPackage(applicationInfo.packageName) != null
         try {
             val packageInfo = packageManager.getPackageInfo(applicationInfo.packageName, 0)
             item.version = packageInfo.versionName

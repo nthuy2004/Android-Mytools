@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="8dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:background="@drawable/ripple_effect">
-    <ImageView
-        app:tint="?colorOnPrimary"
-        android:paddingStart="8dp"
-        android:id="@+id/icon"
-        android:background="@drawable/style_drawable"
-        style="@style/AppIcon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-     />
+    android:descendantFocusability="blocksDescendants">
     <LinearLayout
-        android:paddingStart="8dp"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="7dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/title"
-            style="@style/textTitle"
-            android:layout_width="match_parent"
+        android:padding="8dp"
+        android:clickable="false"
+        android:focusable="false"
+        android:background="@drawable/ripple_effect">
+        <ImageView
+            app:tint="?colorOnPrimary"
+            android:clickable="false"
+            android:focusable="false"
+            android:paddingStart="8dp"
+            android:id="@+id/icon"
+            android:background="@drawable/style_drawable"
+            style="@style/AppIcon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            />
+        <LinearLayout
+            android:paddingStart="8dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:lines="1" />
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="7dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/title"
+                style="@style/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3" />
 
-        <TextView
-            android:id="@+id/desc"
-            style="@style/textSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lines="1" />
+            <TextView
+                android:id="@+id/desc"
+                style="@style/textSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

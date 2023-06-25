@@ -3,8 +3,11 @@ package vn.nth.mytools.ui.activities
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Menu
 import android.widget.AdapterView
+import androidx.core.widget.addTextChangedListener
 import vn.nth.mytools.App
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.R
@@ -32,21 +35,29 @@ class ProgramsActivity : BaseActivity() {
             layout = R.layout.layout_loading
             cancelable = false
         }
+        binding.searchApp.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                TODO("Not yet implemented")
+            }
 
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                TODO("Not yet implemented")
+            }
+
+        })
         binding.listView.onItemLongClickListener = AdapterView.OnItemLongClickListener() { parent, view, pos, id ->
             val data = appData!!.get(pos)
-            AppDetailDialog(this, data).apply {
-
-            }.show()
+            AppDetailDialog(this, data).show()
             true
         }
         baseDialog.show()
         Thread {
             appData = App.getInstalledApps()
-            val adapter = ApplicationsAdapter(this, appData, "")
             handler.post {
-                binding.listView.adapter = adapter
-
+                setList()
             }
             baseDialog.dismiss()
         }.start()
@@ -59,5 +70,9 @@ class ProgramsActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.activity_programs_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+    private fun setList() {
+        val adapter = ApplicationsAdapter(this, appData, "")
+        binding.listView.adapter = adapter
     }
 }

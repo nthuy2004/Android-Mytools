@@ -16,13 +16,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:padding="16dp"
             >
             <ImageView
                 android:id="@+id/appIcon"
                 style="@style/AppIcon"
                 android:src="@{data.icon}" />
             <LinearLayout
+                android:paddingStart="8dp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -30,6 +31,7 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
                 <TextView
+                    android:ellipsize="end"
                     android:id="@+id/item_title"
                     style="@style/textTitle"
                     android:layout_width="match_parent"
@@ -38,6 +40,7 @@
                     android:lines="1" />
 
                 <TextView
+                    android:ellipsize="end"
                     android:id="@+id/item_pkgname"
                     style="@style/textSmall"
                     android:layout_width="match_parent"
@@ -67,7 +70,7 @@
             <com.google.android.material.button.MaterialButton
                 android:text="Google play"
                 style="@style/Widget.Material3.Button.TextButton"
-                android:id="@+id/btnUninstall"
+                android:id="@+id/btnGotoMarket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -94,12 +97,33 @@
                 android:layout_height="wrap_content" />
             <vn.nth.mytools.ui.customviews.PerfItem
                 android:id="@+id/btnFreezeMenu"
-                app:headicon="@drawable/icon_trash"
+                app:headicon="@drawable/icon_winter"
                 app:title="@string/freeze"
                 app:desc="@string/freeze_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <com.google.android.material.button.MaterialButton
+                android:text="More"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btnMore"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <com.google.android.material.button.MaterialButton
+                android:text="Close"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:id="@+id/btnClose"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </layout>
