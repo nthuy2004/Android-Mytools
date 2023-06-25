@@ -4,16 +4,17 @@ import android.content.Context
 import android.content.DialogInterface
 import vn.nth.mytools.ui.base.BaseMaterial3Dialog
 
-open class ConfirmDialogListener {
-    open fun onConfirmed(i : DialogInterface?) {
-        i?.dismiss()
-    }
-    open fun onRejected(i : DialogInterface?) {
-        i?.dismiss()
-    }
-}
+
 
 class ConfirmDialog(context : Context) : BaseMaterial3Dialog(context) {
+    open class ConfirmDialogListener {
+        open fun onConfirmed(i : DialogInterface?) {
+            i?.dismiss()
+        }
+        open fun onRejected(i : DialogInterface?) {
+            i?.dismiss()
+        }
+    }
     public var event : ConfirmDialogListener = ConfirmDialogListener()
     init {
         title = "Confirm"

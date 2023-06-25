@@ -5,12 +5,16 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.Menu
 import android.widget.AdapterView
 import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doOnTextChanged
 import vn.nth.mytools.App
+import vn.nth.mytools.BuildConfig
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.R
+import vn.nth.mytools.Utils.charSequenceToString
 import vn.nth.mytools.ui.adapter.ApplicationsAdapter
 import vn.nth.mytools.ui.base.BaseActivity
 import vn.nth.mytools.ui.base.BaseMaterial3Dialog
@@ -18,11 +22,10 @@ import vn.nth.mytools.ui.dialogs.AppDetailDialog
 import vn.nth.mytools.databinding.ActivityProgramsBinding
 
 class ProgramsActivity : BaseActivity() {
+    private val TAG : String = "NTH_MYTOOLS_PROGRAMSACTIVITY"
     private lateinit var binding : ActivityProgramsBinding
-    private val handler : Handler = Handler(Looper.getMainLooper())
     private var appData : ArrayList<AppModel> = ArrayList<AppModel>()
     private lateinit var baseDialog: BaseMaterial3Dialog
-    private lateinit var appDetailDialog: AppDetailDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProgramsBinding.inflate(layoutInflater)
@@ -35,21 +38,20 @@ class ProgramsActivity : BaseActivity() {
             layout = R.layout.layout_loading
             cancelable = false
         }
-        binding.searchApp.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
-            }
+        var lastInput = 0L // tks to stackoverflow
+        binding.searchApp.doOnTextChanged { text, start, before, count ->
+            val current = System.currentTimeMillis()
+            lastInput = current
+            handler.postDelayed({
+                if(lastInput == current) {
+                    setList(charSequenceToString(text!!))
+                }
 
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun afterTextChanged(p0: Editable?) {
-                TODO("Not yet implemented")
-            }
-
-        })
+            }, 500)
+        }
         binding.listView.onItemLongClickListener = AdapterView.OnItemLongClickListener() { parent, view, pos, id ->
-            val data = appData!!.get(pos)
+            Log.d(TAG, "Pos: $pos | Id: $id")
+            val data = parent.adapter.getItem(pos) as AppModel
             AppDetailDialog(this, data).show()
             true
         }
@@ -71,8 +73,8 @@ class ProgramsActivity : BaseActivity() {
         menuInflater.inflate(R.menu.activity_programs_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
-    private fun setList() {
-        val adapter = ApplicationsAdapter(this, appData, "")
+    private fun setList(keyword : String = "") {
+        val adapter = ApplicationsAdapter(this, appData, keyword)
         binding.listView.adapter = adapter
     }
 }

@@ -2,7 +2,6 @@ package vn.nth.mytools.ui.dialogs
 
 import android.content.Context
 import android.content.DialogInterface
-import android.content.pm.ActivityInfo
 import android.text.Html
 import android.view.LayoutInflater
 import vn.nth.mytools.App
@@ -12,7 +11,6 @@ import vn.nth.mytools.Utils.runMarket
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.ui.base.BaseMaterial3Dialog
 import vn.nth.mytools.databinding.LayoutAppDetailBinding
-import vn.nth.mytools.ui.base.BaseDialog
 
 class AppDetailDialog(private var context : Context, private var appData : AppModel): BaseMaterial3Dialog(context) {
     private var layoutInflater: LayoutInflater = LayoutInflater.from(context)
@@ -51,7 +49,7 @@ class AppDetailDialog(private var context : Context, private var appData : AppMo
                 ahihi(appData) { type, method ->
                     message = Html.fromHtml("Do you want to uninstall <font color='red'>${appData.appname}</font> ? This is ${type} application, then i'll use ${method} method!")
                 }
-                event = object : ConfirmDialogListener() {
+                event = object : ConfirmDialog.ConfirmDialogListener() {
                     override fun onConfirmed(i: DialogInterface?) {
                         App.toast("Confirmed")
                     }

@@ -1,9 +1,12 @@
 package vn.nth.mytools.ui.base
 
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 
 open class BaseActivity : AppCompatActivity() {
+    val handler : Handler = Handler(Looper.getMainLooper())
     protected fun setBackOnAppbar(toolbar: Toolbar) {
         setSupportActionBar(toolbar)
 

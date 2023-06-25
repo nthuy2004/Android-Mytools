@@ -7,4 +7,8 @@
         android:icon="@drawable/ellipsis_vertical_solid"
         android:iconTint="?colorOnPrimary"
         />
+    <item
+        android:id="@+id/app_bar_switch"
+        android:title="Switch"
+        app:actionLayout="@layout/switch_item" />
 </menu>

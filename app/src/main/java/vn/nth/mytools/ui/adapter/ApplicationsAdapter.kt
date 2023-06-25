@@ -1,6 +1,7 @@
 package vn.nth.mytools.ui.adapter
 
 import android.content.Context
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,7 +18,7 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
     private lateinit var binding : LayoutAppItemBinding
     private var layoutInflater: LayoutInflater
     init {
-        list = sort(apps)
+        list = sort(filterApps(apps, keyword))
         layoutInflater = LayoutInflater.from(context)
     }
     override fun getCount(): Int {
@@ -65,8 +66,36 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
         }
         return convertView
     }
+    private fun searchFromString(item: AppModel, text: String): Boolean {
+        return item.packageName.toLowerCase().contains(text)
+                || item.appname.toLowerCase().contains(text)
+                || item.path.toString().toLowerCase().contains(text)
+    }
+    private fun filterApps(items : ArrayList<AppModel>, keyword: String) : ArrayList<AppModel> {
+        val text = keyword.toLowerCase()
+        if(TextUtils.isEmpty(text)) return items
+        return ArrayList(items.filter {
+            searchFromString(it, text)
+        })
+    }
     private fun sort(list : ArrayList<AppModel>) : ArrayList<AppModel> {
-        list.sortWith(compareBy({it.appname}))
+        list.sortWith(Comparator { l, r ->
+            val les = l.appname
+            val res = r.appname
+            when {
+                les < res -> -1
+                les > res -> 1
+                else -> {
+                    val lp = l.packageName
+                    val rp = r.packageName
+                    when {
+                        lp < rp -> -1
+                        lp > rp -> 1
+                        else -> 0
+                    }
+                }
+            }
+        })
         return list
     }
     inner class ViewHolder {
