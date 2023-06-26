@@ -40,7 +40,7 @@ class ShellUtils {
                     errOutput.append(s)
                 }
                 val end = System.currentTimeMillis()
-                return ShellResult(errOutput.toString(), end-start)
+                return ShellResult(output.toString(), errOutput.toString(), end-start)
             }
             catch (ex : Exception) {
                 return ShellResult()
@@ -60,14 +60,23 @@ class ShellUtils {
     }
 
     class ShellResult {
+        public var successOutput: String? = null
+        public var errorOutput: String? = null
+        public var execTime: Long = 0L
         constructor() {
 
         }
-        constructor(a : String?, b : Long) {
-            output = a
-            execTime = b
+        constructor(a : String?, b : String?, c : Long) {
+            successOutput = a
+            errorOutput = b
+            execTime = c
         }
-        public var output: String? = null
-        public var execTime: Long = 0L
+        public fun isSuccess() : Boolean {
+            return !successOutput.isEmpty() && errorOutput.isEmpty()
+        }
+        public fun getOutput() : String? {
+            return if(isSuccess()) successOutput else errorOutput
+        }
+
     }
 }
