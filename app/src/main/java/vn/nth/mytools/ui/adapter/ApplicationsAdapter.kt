@@ -1,24 +1,41 @@
 package vn.nth.mytools.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.text.Html
+import android.text.SpannableString
+import android.text.Spanned
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.CheckBox
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import vn.nth.mytools.App
+import vn.nth.mytools.BuildConfig
+import vn.nth.mytools.Utils.Constant.AppSelectConstant
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.databinding.LayoutAppItemBinding
 
-class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppModel>, keyword : String) : BaseAdapter() {
+class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppModel>, private var keyword : String, private val flags : Int) : BaseAdapter() {
+    private val TAG = "NTH_MYTOOLS_APP_ADAPTER"
     private var list : ArrayList<AppModel>
+    @SuppressLint("UseSparseArrays")
+    private var selectedItems : HashMap<Int, Boolean> = HashMap()
     private lateinit var holder : ViewHolder
     private lateinit var binding : LayoutAppItemBinding
     private var layoutInflater: LayoutInflater
+
+    private var selectUserApp = (flags and AppSelectConstant.USER != 0)
+    private var selectAllApp = (flags and AppSelectConstant.ALL != 0)
+
     init {
         list = sort(filterApps(apps, keyword))
+        initSelectedItem(false)
         layoutInflater = LayoutInflater.from(context)
     }
     override fun getCount(): Int {
@@ -40,6 +57,7 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
             holder = ViewHolder()
             convertView = binding.root
             holder.run {
+                root = binding.root
                 checkState = binding.selectState
                 itemTitle = binding.itemTitle
                 itemPkgname = binding.itemPkgname
@@ -53,9 +71,15 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
         }
         holder.run {
             val item = getItem(p0)
-            itemTitle!!.text = item.appname
-            itemPkgname!!.text = item.packageName
+            itemTitle!!.text = hightLightKeyword(item.appname, keyword)
+            itemPkgname!!.text = hightLightKeyword(item.packageName, keyword)
             itemIcon.setImageDrawable(item.icon)
+            checkState.setOnCheckedChangeListener { _, isChecked ->
+                Log.d(TAG, "Item pos $p0 | selected state: $isChecked")
+                // because of viewholder's feature, then set check state in activity, not adapter
+                selectedItems[p0] = isChecked
+            }
+            checkState.isChecked = selectedItems[p0] == true
             itemStatus.run {
                 text = item.getStatus()
                 visibility = when(item.getStatus()) {
@@ -67,16 +91,43 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
         return convertView
     }
     private fun searchFromString(item: AppModel, text: String): Boolean {
+        if(text.equals("")) return true
         return item.packageName.toLowerCase().contains(text)
                 || item.appname.toLowerCase().contains(text)
-                || item.path.toString().toLowerCase().contains(text)
     }
+
     private fun filterApps(items : ArrayList<AppModel>, keyword: String) : ArrayList<AppModel> {
         val text = keyword.toLowerCase()
-        if(TextUtils.isEmpty(text)) return items
         return ArrayList(items.filter {
-            searchFromString(it, text)
+            searchFromString(it, text) && filterType(it)
         })
+    }
+    private fun hightLightKeyword(string: String, substr : String) : Spanned? {
+        val start : Int = string.toLowerCase().indexOf(substr)
+        if(start == -1) return Html.fromHtml(string)
+        val end : Int = start + substr.length
+        if(end > string.length) if(start == -1) return Html.fromHtml(string)
+        val toReplace : String = string.substring(start, end)
+        val newStr = string.replace(toReplace, "<font color='red'>$toReplace</font>")
+        return Html.fromHtml(newStr)
+    }
+    private fun filterType(item: AppModel) : Boolean {
+        var res = false
+        if(item.packageName.equals(BuildConfig.APPLICATION_ID)) res = false
+        if(selectAllApp) res = true
+        if(selectUserApp && !item.isSystem) res = true
+        //Log.d(TAG, "PKG NAME: ${item.packageName} | ret val : $res")
+        return res
+    }
+    private fun initSelectedItem(defaultValue : Boolean) {
+        for(i in list.indices) {
+            selectedItems[i] = defaultValue
+        }
+    }
+    public fun getSelectedItems() : ArrayList<AppModel> {
+        return selectedItems.keys.filter {
+            selectedItems[it] == true
+        }.mapTo(ArrayList()){getItem(it)}
     }
     private fun sort(list : ArrayList<AppModel>) : ArrayList<AppModel> {
         list.sortWith(Comparator { l, r ->
@@ -99,6 +150,7 @@ class ApplicationsAdapter(private val context : Context, apps : ArrayList<AppMod
         return list
     }
     inner class ViewHolder {
+        internal lateinit var root : LinearLayout
         internal lateinit var checkState : CheckBox
         internal lateinit var itemTitle : TextView
         internal lateinit var itemPkgname : TextView

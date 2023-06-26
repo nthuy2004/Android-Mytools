@@ -6,7 +6,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import vn.nth.mytools.App
 import vn.nth.mytools.R
+import vn.nth.mytools.Utils.ShellUtils
 import vn.nth.mytools.ui.base.BaseActivity
 import vn.nth.mytools.databinding.ActivityMainBinding
 

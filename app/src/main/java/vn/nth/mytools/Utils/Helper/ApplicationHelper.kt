@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
 import vn.nth.mytools.App
+import vn.nth.mytools.BuildConfig
 import vn.nth.mytools.data.models.AppModel
 import vn.nth.mytools.Utils.charSequenceToString
 import vn.nth.mytools.Utils.getAppIcon
@@ -13,7 +14,7 @@ import java.io.File
 
 class ApplicationHelper(ctx : Context) {
     private val TAG = "NTH_MYTOOLS_APPLICATION_HELPER"
-    private val whitelistApps = arrayOf("com.android.theme.", ".overlay")
+    private val whitelistApps = arrayOf("com.android.theme.", ".overlay", BuildConfig.APPLICATION_ID)
     val context : Context = ctx
     var packageManager : PackageManager
     init {
